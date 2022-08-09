@@ -1,0 +1,310 @@
+<?xml version="1.0"?>
+<!-- THIS FILE SPECIFIES PARAMETERS -->
+<params>
+	<Simulation>
+
+		<endTime>30.0</endTime><!--minutes-->
+		<timeSlice>0.25</timeSlice><!--simulated time interval-->
+		<sampleTimeSlice>0.25</sampleTimeSlice><!--interval for recording logs-->
+
+		<tissueWidth>162</tissueWidth>
+		<tissueDepth>162</tissueDepth>		
+		<bufferSize>0</bufferSize>
+		<position_macs_randomly>false</position_macs_randomly>
+		<bcell_lognorm>true</bcell_lognorm>
+		<trackPositions>true</trackPositions>
+
+		<BCell>
+			<translationParadigm>HeterogeneousBetaMeander</translationParadigm>
+			<orientationParadigm>HeterogeneousBetaMeander</orientationParadigm>
+			<numBCells>500</numBCells>
+			<diameter>1.8</diameter>
+			<perform_meander>false</perform_meander>
+			<meanderMean>-2</meanderMean>
+			<meanderStD>1.75</meanderStD>
+
+			<speedM_Mean>1.17</speedM_Mean>
+			<speedM_StD>0.0</speedM_StD>
+			<speedS_Mean>0.335</speedS_Mean>
+			<speedS_StD>0.0</speedS_StD>
+
+<!--pitch/roll are ignored if HeterogeneousBetaMeander is used-->
+			<pitchM_Mean>0.0</pitchM_Mean> 
+			<pitchM_StD>0.4</pitchM_StD>
+			<pitchS_Mean>0.0</pitchS_Mean>
+			<pitchS_StD>0.0</pitchS_StD>
+			<rollM_Mean>0.3</rollM_Mean>
+			<rollM_StD>0.6</rollM_StD>
+			<rollS_Mean>0.0</rollS_Mean>
+			<rollS_StD>0.0</rollS_StD>
+
+<!--Used for HeterogeneousBetaMeander only-->
+			<betaDistr_alpha>2.02</betaDistr_alpha>
+			<betaDistr_beta>1.707</betaDistr_beta>
+			<betaDistr_scaleFactor>5.40</betaDistr_scaleFactor>
+
+		</BCell>
+		<Macrophage>
+			<translationParadigm>HeterogeneousCRW</translationParadigm>
+			<orientationParadigm>HeterogeneousCRW</orientationParadigm>
+			<numMacs>18</numMacs>
+
+			<diameter>14</diameter>
+
+			<speedM_Mean>5.0</speedM_Mean> 
+			<speedM_StD>0.0</speedM_StD>
+			<speedS_Mean>0.0</speedS_Mean>
+			<speedS_StD>0.0</speedS_StD>
+
+			<pitchM_Mean>1.0</pitchM_Mean>
+			<pitchM_StD>1.0</pitchM_StD>
+			<pitchS_Mean>1.0</pitchS_Mean>
+			<pitchS_StD>1.0</pitchS_StD>
+
+			<rollM_Mean>1.0</rollM_Mean>
+			<rollM_StD>1.0</rollM_StD>
+			<rollS_Mean>1.0</rollS_Mean>
+			<rollS_StD>1.0</rollS_StD>
+
+
+		</Macrophage>
+	</Simulation>
+
+<!--Not used-->
+	<Movement> 
+			<translationParadigm>BrownianMeander</translationParadigm>
+			<orientationParadigm>BrownianMeander</orientationParadigm>
+		<BCell>
+
+
+			<Ballistic>
+				<speed>10.0</speed>
+			</Ballistic>
+			<Brownian>
+				<speedStD>2.0</speedStD>
+			</Brownian>
+			<!--Levy distributions with variable power law decays-->
+			<LevyFlight>
+				<restMu>0.0</restMu>
+				<restScale>1.0</restScale>			
+				<motileMu>0.0</motileMu>
+				<motileScale>1.0</motileScale>
+				<speedMu>0.0</speedMu>
+				<speedScale>1.0</speedScale>
+			</LevyFlight>			
+			<HomogeneousCRW_Orientation>
+				<pitchRateMean>0.5</pitchRateMean>
+				<pitchRateStd>0.35</pitchRateStd>
+				<rollRateMean>-1.0</rollRateMean>
+				<rollRateStd>0.0</rollRateStd>
+			</HomogeneousCRW_Orientation>
+			<HeterogeneousCRW_Orientation>
+				<pitchM_Mean>1.0</pitchM_Mean>
+				<pitchM_StD>1.0</pitchM_StD>
+				<pitchS_Mean>1.0</pitchS_Mean>
+				<pitchS_StD>1.0</pitchS_StD>
+
+				<rollM_Mean>1.0</rollM_Mean>
+				<rollM_StD>1.0</rollM_StD>
+				<rollS_Mean>1.0</rollS_Mean>
+				<rollS_StD>1.0</rollS_StD>
+			</HeterogeneousCRW_Orientation>
+
+			<HomogeneousCRW_Translation>
+				<speedMean>5.15</speedMean>
+				<speedStD>8.0</speedStD>
+			</HomogeneousCRW_Translation>
+			<HeterogeneousCRW_Translation>
+				<speedM_Mean>6.2</speedM_Mean>
+				<speedM_StD>4.0</speedM_StD>
+				<speedS_Mean>0.875</speedS_Mean>
+				<speedS_StD>0.37</speedS_StD>
+			</HeterogeneousCRW_Translation>
+			<InverseHomogeneousCRW>
+				<speedMean>5.95</speedMean>
+				<speedStD>8.5</speedStD>
+
+				<pitchRateMean>2.65</pitchRateMean>
+				<pitchRateStd>1.5</pitchRateStd>
+				<rollRateMean>-1.0</rollRateMean>
+				<rollRateStd>0.0</rollRateStd>
+
+				<corr>1.0</corr>
+				<attack>0.55</attack>
+			</InverseHomogeneousCRW>	
+			<InverseHeterogeneousCRW>
+				<speedM_Mean>10.0</speedM_Mean>
+				<speedM_StD>0.0</speedM_StD>
+				<speedS_Mean>10.0</speedS_Mean>
+				<speedS_StD>0.0</speedS_StD>
+				
+				<pitchM_Mean>10.0</pitchM_Mean>
+				<pitchM_StD>0.0</pitchM_StD>
+				<pitchS_Mean>10.0</pitchS_Mean>
+				<pitchS_StD>0.0</pitchS_StD>
+
+				<rollM_Mean>-1.0</rollM_Mean>
+				<rollM_StD>-1.0</rollM_StD>
+				<rollS_Mean>-1.0</rollS_Mean>
+				<rollS_StD>-1.0</rollS_StD>
+
+				<attack>0.5</attack>
+				<corr>1.0</corr>
+
+			</InverseHeterogeneousCRW>
+
+			<BiasedInverseHeterogeneousCRW>
+				<speedM_Mean>10.0</speedM_Mean>
+				<speedM_StD>0.0</speedM_StD>
+				<speedS_Mean>10.0</speedS_Mean>
+				<speedS_StD>0.0</speedS_StD>
+				
+				<pitchM_Mean>10.0</pitchM_Mean>
+				<pitchM_StD>0.0</pitchM_StD>
+				<pitchS_Mean>10.0</pitchS_Mean>
+				<pitchS_StD>0.0</pitchS_StD>
+
+				<rollM_Mean>-1.0</rollM_Mean>
+				<rollM_StD>-1.0</rollM_StD>
+				<rollS_Mean>-1.0</rollS_Mean>
+				<rollS_StD>-1.0</rollS_StD>
+
+				<attack>0.5</attack>
+				<corr>1.0</corr>
+
+				<thresholdDist>20</thresholdDist><!--Beyond this distance, a B cell will not 'see' a macrophage and hence will not preferentially be attracted to it.-->
+			</BiasedInverseHeterogeneousCRW>
+
+
+			<BiasedInverseHomogeneousCRW>
+				<speedMean>5.95</speedMean>
+				<speedStD>8.5</speedStD>
+
+				<pitchRateMean>2.65</pitchRateMean>
+				<pitchRateStd>1.5</pitchRateStd>
+				<rollRateMean>-1.0</rollRateMean>
+				<rollRateStd>0.0</rollRateStd>
+
+				<corr>1.0</corr>
+				<attack>0.55</attack>
+
+				<thresholdDist>20</thresholdDist><!--Beyond this distance, a B cell will not 'see' a macrophage and hence will not preferentially be attracted to it.-->
+			</BiasedInverseHomogeneousCRW>
+		</BCell>
+
+		<Macrophage>
+			<Ballistic>
+				<speed>10.0</speed>
+			</Ballistic>
+			<Brownian>
+				<speedStD>2.0</speedStD>
+			</Brownian>
+			<!--Levy distributions with variable power law decays-->
+			<LevyFlight>
+				<restMu>0.0</restMu>
+				<restScale>1.0</restScale>			
+				<motileMu>0.0</motileMu>
+				<motileScale>1.0</motileScale>
+				<speedMu>0.0</speedMu>
+				<speedScale>1.0</speedScale>
+			</LevyFlight>			
+			<HomogeneousCRW_Orientation>
+				<pitchRateMean>0.5</pitchRateMean>
+				<pitchRateStd>0.35</pitchRateStd>
+				<rollRateMean>-1.0</rollRateMean>
+				<rollRateStd>0.0</rollRateStd>
+			</HomogeneousCRW_Orientation>
+			<HeterogeneousCRW_Orientation>
+				<pitchM_Mean>1.0</pitchM_Mean>
+				<pitchM_StD>1.0</pitchM_StD>
+				<pitchS_Mean>1.0</pitchS_Mean>
+				<pitchS_StD>1.0</pitchS_StD>
+
+				<rollM_Mean>1.0</rollM_Mean>
+				<rollM_StD>1.0</rollM_StD>
+				<rollS_Mean>1.0</rollS_Mean>
+				<rollS_StD>1.0</rollS_StD>
+			</HeterogeneousCRW_Orientation>
+
+			<HomogeneousCRW_Translation>
+				<speedMean>5.15</speedMean>
+				<speedStD>8.0</speedStD>
+			</HomogeneousCRW_Translation>
+			<HeterogeneousCRW_Translation>
+				<speedM_Mean>6.2</speedM_Mean>
+				<speedM_StD>4.0</speedM_StD>
+				<speedS_Mean>0.875</speedS_Mean>
+				<speedS_StD>0.37</speedS_StD>
+			</HeterogeneousCRW_Translation>
+			<InverseHomogeneousCRW>
+				<speedMean>5.95</speedMean>
+				<speedStD>8.5</speedStD>
+
+				<pitchRateMean>2.65</pitchRateMean>
+				<pitchRateStd>1.5</pitchRateStd>
+				<rollRateMean>-1.0</rollRateMean>
+				<rollRateStd>0.0</rollRateStd>
+
+				<corr>1.0</corr>
+				<attack>0.55</attack>
+			</InverseHomogeneousCRW>	
+			<InverseHeterogeneousCRW>
+				<speedM_Mean>10.0</speedM_Mean>
+				<speedM_StD>0.0</speedM_StD>
+				<speedS_Mean>10.0</speedS_Mean>
+				<speedS_StD>0.0</speedS_StD>
+				
+				<pitchM_Mean>10.0</pitchM_Mean>
+				<pitchM_StD>0.0</pitchM_StD>
+				<pitchS_Mean>10.0</pitchS_Mean>
+				<pitchS_StD>0.0</pitchS_StD>
+
+				<rollM_Mean>-1.0</rollM_Mean>
+				<rollM_StD>-1.0</rollM_StD>
+				<rollS_Mean>-1.0</rollS_Mean>
+				<rollS_StD>-1.0</rollS_StD>
+
+				<attack>0.5</attack>
+				<corr>1.0</corr>
+
+			</InverseHeterogeneousCRW>
+
+			<BiasedInverseHeterogeneousCRW>
+				<speedM_Mean>10.0</speedM_Mean>
+				<speedM_StD>0.0</speedM_StD>
+				<speedS_Mean>10.0</speedS_Mean>
+				<speedS_StD>0.0</speedS_StD>
+				
+				<pitchM_Mean>10.0</pitchM_Mean>
+				<pitchM_StD>0.0</pitchM_StD>
+				<pitchS_Mean>10.0</pitchS_Mean>
+				<pitchS_StD>0.0</pitchS_StD>
+
+				<rollM_Mean>-1.0</rollM_Mean>
+				<rollM_StD>-1.0</rollM_StD>
+				<rollS_Mean>-1.0</rollS_Mean>
+				<rollS_StD>-1.0</rollS_StD>
+
+				<attack>0.5</attack>
+				<corr>1.0</corr>
+
+				<thresholdDist>20</thresholdDist><!--Beyond this distance, a B cell will not 'see' a macrophage and hence will not preferentially be attracted to it.-->
+			</BiasedInverseHeterogeneousCRW>
+
+
+			<BiasedInverseHomogeneousCRW>
+				<speedMean>5.95</speedMean>
+				<speedStD>8.5</speedStD>
+
+				<pitchRateMean>2.65</pitchRateMean>
+				<pitchRateStd>1.5</pitchRateStd>
+				<rollRateMean>-1.0</rollRateMean>
+				<rollRateStd>0.0</rollRateStd>
+
+				<corr>1.0</corr>
+				<attack>0.55</attack>
+
+			</BiasedInverseHomogeneousCRW>
+		</Macrophage>
+	</Movement>
+</params>
