@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<classpath>
+	<classpathentry excluding="backup/" kind="src" path=""/>
+	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER">
+		<attributes>
+			<attribute name="module" value="true"/>
+			<attribute name="add-exports" value="java.desktop/sun.awt=ALL-UNNAMED"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry kind="lib" path="/Users/wk/Dropbox (Garvan)/WunnasDropbox/Modelling/MASON/Project/src/jar/gluegen-rt-natives-macosx-universal.jar"/>
+	<classpathentry kind="lib" path="/Users/wk/Dropbox (Garvan)/WunnasDropbox/Modelling/MASON/Project/src/jar/gluegen-rt.jar"/>
+	<classpathentry kind="lib" path="/Users/wk/Dropbox (Garvan)/WunnasDropbox/Modelling/MASON/Project/src/jar/gluegen.jar"/>
+	<classpathentry kind="lib" path="/Users/wk/Dropbox (Garvan)/WunnasDropbox/Modelling/MASON/Project/src/jar/jcommon-1.0.24.jar"/>
+	<classpathentry kind="lib" path="/Users/wk/Dropbox (Garvan)/WunnasDropbox/Modelling/MASON/Project/src/jar/jfreechart-1.5.2.jar"/>
+	<classpathentry kind="lib" path="/Users/wk/Dropbox (Garvan)/WunnasDropbox/Modelling/MASON/Project/src/jar/jogl-all-natives-macosx-universal.jar"/>
+	<classpathentry kind="lib" path="/Users/wk/Dropbox (Garvan)/WunnasDropbox/Modelling/MASON/Project/src/jar/jogl-all-noawt.jar"/>
+	<classpathentry kind="lib" path="/Users/wk/Dropbox (Garvan)/WunnasDropbox/Modelling/MASON/Project/src/jar/jogl-all.jar"/>
+	<classpathentry kind="lib" path="/Users/wk/Dropbox (Garvan)/WunnasDropbox/Modelling/MASON/Project/src/jar/itextpdf-5.5.6.jar"/>
+	<classpathentry kind="lib" path="/Users/wk/Dropbox (Garvan)/WunnasDropbox/Modelling/MASON/Project/src/jar/io-7.2.1.jar"/>
+	<classpathentry kind="lib" path="/Users/wk/Dropbox (Garvan)/WunnasDropbox/Modelling/MASON/Project/src/jar/kernel-7.2.1.jar"/>
+	<classpathentry kind="lib" path="/Users/wk/Dropbox (Garvan)/WunnasDropbox/Modelling/MASON/Project/src/jar/layout-7.2.1.jar"/>
+	<classpathentry kind="lib" path="/Users/wk/Dropbox (Garvan)/WunnasDropbox/Modelling/MASON/Project/src/jar/pdfa-7.2.1.jar"/>
+	<classpathentry kind="lib" path="/Users/wk/Dropbox (Garvan)/WunnasDropbox/Modelling/MASON/Project/src/jar/j3dcore.jar"/>
+	<classpathentry kind="lib" path="/Users/wk/Dropbox (Garvan)/WunnasDropbox/Modelling/MASON/Project/src/jar/j3dutils.jar"/>
+	<classpathentry kind="lib" path="/Users/wk/Dropbox (Garvan)/WunnasDropbox/Modelling/MASON/Project/src/jar/java3d-core-1.6.0.1.jar"/>
+	<classpathentry kind="lib" path="/Users/wk/Dropbox (Garvan)/WunnasDropbox/Modelling/MASON/Project/src/jar/vecmath.jar"/>
+	<classpathentry kind="lib" path="/Users/wk/Dropbox (Garvan)/WunnasDropbox/Modelling/MASON/Project/src/jar/commons-math3-3.6.1.jar"/>
+	<classpathentry kind="lib" path="/Users/wk/Dropbox (Garvan)/WunnasDropbox/Modelling/MASON/Project/src/jar/jmf.jar"/>
+	<classpathentry kind="output" path="bin"/>
+</classpath>

@@ -1,0 +1,105 @@
+<?xml version="1.0"?>
+<!-- THIS FILE SPECIFIES PARAMETERS -->
+<params>
+	<Simulation>
+		<endTime>50.0</endTime><!--minutes-->
+		<timeSlice>0.75</timeSlice><!--minutes-->
+		<sampleTimeSlice>0.75</sampleTimeSlice>
+
+		<tissueWidth>412</tissueWidth>
+		<tissueDepth>100</tissueDepth>		
+		<bufferSize>0.1</bufferSize>
+
+		<Neutrophils>
+			<numNeutrophils>80</numNeutrophils>
+			<follicleRatio>0.1</follicleRatio>
+		</Neutrophils>
+		<BCells>
+			<numBCells>100</numBCells>
+		</BCells>
+	</Simulation>
+
+	<Neutrophil>
+		<diameter>7.0</diameter>
+	</Neutrophil>
+
+	<Movement>
+			<translationParadigm>InverseHomogeneousCRW</translationParadigm>
+			<orientationParadigm>InverseHomogeneousCRW</orientationParadigm>
+
+			<Ballistic>
+				<speed>10.0</speed>
+			</Ballistic>
+			<Brownian>
+				<speedStD>10.0</speedStD>
+			</Brownian>
+			<!--Levy distributions with variable power law decays-->
+			<LevyFlight>
+				<restMu>0.0</restMu>
+				<restScale>1.0</restScale>			
+				<motileMu>0.0</motileMu>
+				<motileScale>1.0</motileScale>
+				<speedMu>0.0</speedMu>
+				<speedScale>1.0</speedScale>
+			</LevyFlight>			
+			<HomogeneousCRW_Orientation>
+				<pitchRateMean>0.5</pitchRateMean>
+				<pitchRateStd>0.35</pitchRateStd>
+				<rollRateMean>-1.0</rollRateMean>
+				<rollRateStd>0.0</rollRateStd>
+			</HomogeneousCRW_Orientation>
+			<HeterogeneousCRW_Orientation>
+				<pitchM_Mean>1.0</pitchM_Mean>
+				<pitchM_StD>1.0</pitchM_StD>
+				<pitchS_Mean>1.0</pitchS_Mean>
+				<pitchS_StD>1.0</pitchS_StD>
+
+				<rollM_Mean>1.0</rollM_Mean>
+				<rollM_StD>1.0</rollM_StD>
+				<rollS_Mean>1.0</rollS_Mean>
+				<rollS_StD>1.0</rollS_StD>
+			</HeterogeneousCRW_Orientation>
+
+			<HomogeneousCRW_Translation>
+				<speedMean>5.15</speedMean>
+				<speedStD>8.0</speedStD>
+			</HomogeneousCRW_Translation>
+			<HeterogeneousCRW_Translation>
+				<speedM_Mean>6.2</speedM_Mean>
+				<speedM_StD>4.0</speedM_StD>
+				<speedS_Mean>0.875</speedS_Mean>
+				<speedS_StD>0.37</speedS_StD>
+			</HeterogeneousCRW_Translation>
+			<InverseHomogeneousCRW>
+				<speedMean>5.95</speedMean>
+				<speedStD>8.5</speedStD>
+
+				<pitchRateMean>2.65</pitchRateMean>
+				<pitchRateStd>1.5</pitchRateStd>
+				<rollRateMean>-1.0</rollRateMean>
+				<rollRateStd>0.0</rollRateStd>
+
+				<corr>1.0</corr>
+				<attack>0.55</attack>
+			</InverseHomogeneousCRW>	
+			<InverseHeterogeneousCRW>
+				<speedM_Mean>10.0</speedM_Mean>
+				<speedM_StD>0.0</speedM_StD>
+				<speedS_Mean>10.0</speedS_Mean>
+				<speedS_StD>0.0</speedS_StD>
+				
+				<pitchM_Mean>10.0</pitchM_Mean>
+				<pitchM_StD>0.0</pitchM_StD>
+				<pitchS_Mean>10.0</pitchS_Mean>
+				<pitchS_StD>0.0</pitchS_StD>
+
+				<rollM_Mean>-1.0</rollM_Mean>
+				<rollM_StD>-1.0</rollM_StD>
+				<rollS_Mean>-1.0</rollS_Mean>
+				<rollS_StD>-1.0</rollS_StD>
+
+				<attack>0.5</attack>
+				<corr>1.0</corr>
+			</InverseHeterogeneousCRW>
+	</Movement>
+</params>
