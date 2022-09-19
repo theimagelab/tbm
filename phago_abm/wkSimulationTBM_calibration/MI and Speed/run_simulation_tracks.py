@@ -10,7 +10,7 @@ Particularly in terms of speed, and meandering index (confinement)
 import xml.etree.ElementTree as ET
 import subprocess
 
-jar_name = "Phago_ABM.jar"
+jar_name = "wkSimulationTBM.jar"
 result_dir_name = "calibration_MI_statmacs"
 
 frag_speed_means = [1.17]

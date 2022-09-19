@@ -252,6 +252,18 @@ gs <- ggplot(df_spd, aes(x=MotilityPar, y=value)) +
     theme(axis.text.x = element_text(angle=45)) + ylim(0,10) +
  scale_fill_manual(values=getPalette(colourCount))
     gs
+    
+x<-df_spd %>% filter(MotilityPar == "Observed" | MotilityPar == "1.17_0.335_mm-3_ms1.5") 
+speed_cdf<-ggplot(x, aes(x=value, color = MotilityPar)) +
+        stat_ecdf(geom="step", size=3) + 
+        ylab("CDF") + xlab("Speed") +
+        theme_minimal_big_font() + scale_colour_brewer(palette="Set1")
+speed_cdf
+ggsave(plot=speed_cdf, "Speed_cdf_pval=0.805_1wayanova.svg", height=5, width=5)
+a= x %>% filter(MotilityPar == "Observed") %>% pull(value)
+b= x %>% filter(MotilityPar == "1.17_0.335_mm-3_ms1.5") %>% pull(value)
+summary(aov(data=x, value ~ MotilityPar))
+
 
 
 ## Displacement not an accurate calibration metric 
@@ -303,13 +315,18 @@ gsim<-ggplot(dat, aes(x=x, y=y, fill=x)) + geom_violin(scale="width") + geom_box
     ylab("Mean Speed") +
     theme_minimal_big_font()
 #gsim
-
+pal=brewer.pal(6, "Set1")
 x<-df_mi %>% filter(MotilityPar == "Observed" | MotilityPar == "1.17_0.335_mm-3_ms1.5") 
-ggplot(x, aes(x=value, color = MotilityPar)) + stat_ecdf(geom="step")
+cdf<-ggplot(x, aes(x=value, color = MotilityPar)) +
+    stat_ecdf(geom="step", size=3) + 
+    ylab("CDF") + xlab("Meandering Index") +
+    theme_minimal_big_font() + scale_colour_brewer(palette="Set1")
+cdf
+ggsave(plot=cdf, "MI_cdf_pval=0.561_1wayanova.svg", height=5, width=5)
 
 a= x %>% filter(MotilityPar == "Observed") %>% pull(value)
 b= x %>% filter(MotilityPar == "1.17_0.335_mm-3_ms1.5") %>% pull(value)
-t.test(a,b)
+summary(aov(data=x, value ~ MotilityPar))
 
 gm
 ggsave(plot=gm, "meandering_index_calibrated.svg", height=5, width=15)
