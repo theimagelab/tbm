@@ -1,0 +1,10 @@
+
+> print(summary(two_way_anova))
+            Df Sum Sq Mean Sq F value   Pr(>F)    
+MacSpd       1 0.1091  0.1091   68.92 1.29e-12 ***
+Volume       1 0.4877  0.4877  308.01  < 2e-16 ***
+Residuals   86 0.1362  0.0016                     
+---
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+
+> sink() 

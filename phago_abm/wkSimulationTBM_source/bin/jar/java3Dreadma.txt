@@ -1,0 +1,17 @@
+The following .jar files are needed for 3d visualization: Without these you will receive an error saying "Some libraries could not be loaded: probably no java3d."
+
+gluegen-rt.jar
+gluegen-rt-natives-your-platform.jar
+joal.jar
+joal-all-natives-your-platform.jar
+jogl-all.jar
+jogl-natives-your-platform.jar
+
+j3dcore.jar
+j3dutils.jar
+vecmath.jar
+
+Installation just requires the IDE to recognize where the .jar files are:
+In Eclipse:
+	1. Right click on the project and then select build path--->configure build path--->java build path---->libraries.
+	2. Add libraries. Navigate to the location of the .jar files above. Click apply and restart eclipse.
