@@ -202,6 +202,7 @@ public abstract class Simulation extends SimState
 		{
 			sampleTimeSlice = Double.parseDouble(nl.item(0).getTextContent());
 		}
+		
 	}	
 	
 	/** Read command line arguments */
