@@ -1,20 +1,18 @@
 crossover_results.svg
 significance between stationary and motile macs. (twoway anova)
-p=3.48e-11 
+p=
 n=456 simulations
-crossover point = 452 (95% CI: 262 - 640)
-
+crossover point = 
 Crossover_results_random.svg
 significance between stationary and motile macs. (twoway anova)
-p=3.3e-07 
+p= 
 n=450 simulations
 
 mac_volume_simulations.svg
 significance between stationary and motile macs. (twoway anova)
-p=1.29e-12 
-n=90 simulations
-
+p=
+n=
 contour.png
 significance between stationary and motile macs. (three-way anova)
-p=7.77e-13
-n=756 simulations
+p=
+n=

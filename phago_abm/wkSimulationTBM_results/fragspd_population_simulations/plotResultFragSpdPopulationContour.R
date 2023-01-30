@@ -117,10 +117,12 @@ for (diameter in unique(df_agg$Diameter)) {
 
 # Asymmetric diverging color scale represents the data better
 ## Make vector of colors for values smaller than 0 (20 colors)
-rc1 <- colorRampPalette(c(brewer.pal(10, "RdBu")[1:5],"#FFFFFF"))(abs(min(surf_diff))*100)
+z_max=0.30
+z_min = -0.8
+rc1 <- colorRampPalette(c(brewer.pal(11, "RdBu")[1:6]))(abs(z_min)*100)
 
 ## Make vector of colors for values larger than 0 (180 colors)
-rc2 <- colorRampPalette(c("#FFFFFF",brewer.pal(10, "RdBu")[7:10]))(abs(max(surf_diff))*100)
+rc2 <- colorRampPalette(c(brewer.pal(11, "RdBu")[6:11]))(abs(z_max)*100)
 
 ## Combine the two color palettes
 rampcols_asymm <- c(rc1, rc2)
@@ -129,7 +131,7 @@ rampcols_asymm <- c(rc1, rc2)
 fig_diff <- plot_ly()
 fig_diff <- fig_diff %>% add_trace(x = ~Population.seq,
                            y = ~FragSpd.seq,
-                           z = surf_diff, type = "contour", zmid=0,  zmax=0.06, zmin=-0.29,
+                           z = surf_diff, type = "contour", zmid=0,  zmax=z_max, zmin=z_min,
                            colors=rampcols_asymm,
                            contours = list(
                                coloring = 'heatmap',
@@ -142,7 +144,7 @@ fig_diff <- fig_diff %>% add_trace(x = ~Population.seq,
                            line = list(width = 3, color = "black")
                            )
 
-n_sims <- df_mean %>% filter(MacSpd == 0 | MacSpd == 5) %>% select(nrun) %>% pull(nrun) %>% sum()
+n_sims <- df_mean %>% filter(MacSpd == 0 | MacSpd == 5) %>% pull(nrun) %>% sum()
 
 hline <- function(y = 0, color = "black") {
     list(
@@ -160,8 +162,8 @@ fig_diff<- fig_diff %>%
     layout(
          
             xaxis = list(
-                title = "Fragment Count",
-                type = "linear",
+                title = "Simulated Fragments per GC",
+                type = "log",
                 tickfont = list(size = 20)
             ),
             yaxis = list(
@@ -206,12 +208,15 @@ fig_diff_surf <- plot_ly() %>% add_surface(x = ~Population.seq,
 surf0_df <- df_agg %>% filter(Diameter == diameter, MacSpd == 0)
 mod <- gam(AverageRate ~ te(Population) + te(FragSpd) + ti(Population, FragSpd), data=surf0_df)
 surf0_matrix <- outer(Population.seq, FragSpd.seq, Vectorize(predfun)) %>% t()
+# 
+# summary(three_way_anova)
+# three_way_anova <- aov(RatePct ~ Population + MacSpd + FragSpd, data = df_agg)
 
-three_way_anova <- aov(RatePct ~ Population + MacSpd + FragSpd, data = df_agg)
+#Obseved (physiological condiitons)
+three_way_anova <- aov(RatePct ~ Population + MacSpd + FragSpd, data = df_agg %>% filter(FragSpd==1.17 & Population>1999))
 summary(three_way_anova)
-
-
 ###### # Plot clearance rate at fragspd = 3.4 um.
+
 
 # vol_gc = 2226095
 # 
