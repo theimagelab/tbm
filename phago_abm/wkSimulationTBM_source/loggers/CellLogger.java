@@ -120,12 +120,12 @@ public class CellLogger
 	public CellLogger()
 	{}
 	
-	public void writeTrackData(String dir)
+	public void writeTrackData(String dir, String filename)
 	{	
 		System.out.println("Writing cell track data to the filesystem.");
 		try 
 		{
-			BufferedWriter positionOut = setupPositionOutputFile(dir + "/_Position.csv", "Position");
+			BufferedWriter positionOut = setupPositionOutputFile(dir + "/" + filename, "Position");
 
 			int trackID = 0;	// for writing to FS. Incremented for every encounter of a cell in imaging volume.			
 			for (Track track : tracks)

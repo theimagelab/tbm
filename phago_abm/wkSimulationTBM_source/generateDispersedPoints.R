@@ -15,9 +15,9 @@ mean_r_gc=81 # mean gc radius. based on a spherical gc with mean volume 2229154 
 n_runs<-100
 
 # This is the parameter that tunes NNDs
-# I have tried various numbers, and 14.7 is the value that gives NNDs
-# that align to the mean NND in imaging (36.82um)
-exclusion_radius = 14.55 
+# I have tried various numbers, and this is the value that gives NNDs
+# that align to the mean NND in imaging (41um)
+exclusion_radius = 17.5
 
 random_nonoverlapping_spheres <- function(n_sph, r_sph, r_boundary=81){
     result <- matrix(0, nrow=n_sph, ncol=3)
@@ -79,7 +79,7 @@ for (i in 1:length(points)) {
 ### Reading the .csvs to plot their NNDs.
 range=c(0,81)
 nn_rand_df<-data.frame(matrix(ncol=1, nrow=0))
-files<-list.files(paste(getwd(), "/macInitPos_meanNNdist=36.8/", sep=""), recursive=FALSE, full.names=TRUE)
+files<-list.files(paste(getwd(), "/macInitPos_meanNNdist/", sep=""), recursive=FALSE, full.names=TRUE)
 for (file in files) {
     df<-read.csv(file)
     sph_pos_pp3<-pp3(df$V1, df$V2, df$V3, xrange = range, yrange = range, zrange = range)
@@ -100,3 +100,4 @@ plot
 # save the nndist data so we can plot alongside the experimental nndists in it's own R script.
 #saveRDS(nn_rand_df, file="simulatedNNdistPoints.Rds")
 nn_rand_df$nn1_dists %>% mean()
+mean_nn_random

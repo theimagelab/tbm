@@ -16,6 +16,7 @@ import org.w3c.dom.Node;
 import filesystem.FileSystemIO;
 import loggers.CellLogger;
 import loggers.TimeLogger;
+import sim.engine.SimState;
 import sim.util.Double3D;
 
 /**
@@ -45,15 +46,17 @@ public class SimulationTBM extends Simulation
 			+ "/";
 
 
-	final static File initMacDir = new File("macInitPos_meanNNdist=36.8");
-	
-	
+	final static File initMacDir = new File("macInitPos_meanNNdist");
+	final static File randomMacDir = new File("macInitPos_random");
 	
 	
 	File[] macFiles = initMacDir.listFiles();
+	File[] macFiles_random = randomMacDir.listFiles();
+
 	Random rand = new Random();
 	File initMacPositionFile = macFiles[rand.nextInt(macFiles.length)]; 
-	
+	File randMacPositionFile = macFiles_random[rand.nextInt(macFiles_random.length)]; 
+
 	
 	public static ArrayList<Fragment> fragsln = new ArrayList<Fragment>();	
 
@@ -104,7 +107,6 @@ public class SimulationTBM extends Simulation
 			System.out.println("Total cell volume is " + totalCellVol + "while simulated box size is" + volumeSimulated + ". Program may get stuck as there may not be enough 3D space to populate cells. Consider reducing number of cells");
 		}
 		
-		
 		System.out.println("Populating " + totalFrags + " fragments.");
 		for(int n = 0; n < totalFrags; n++)
 			{
@@ -113,16 +115,16 @@ public class SimulationTBM extends Simulation
 				fragsln.add(frag);		
 
 			}
-			
-		
+
 		if (!position_macs_randomly) {
 			List<List<String>> positionData = FileSystemIO.readImarisCSV(initMacPositionFile, 1);
-			
-			// random init are enclosed in a sphere at origin 0,0,0. But our simulation's sphere is centered at (r,r,r) (i..e no negative coords)
-			// So we need to translate.
+				
+				// random init are enclosed in a sphere at origin 0,0,0. But our simulation's sphere is centered at (r,r,r) (i..e no negative coords)
+				// So we need to translate.
 			Double3D newCenter = new Double3D(Simulation.tissueRadius, Simulation.tissueRadius,Simulation.tissueRadius);
 			List<Double3D> recenteredPos = FileSystemIO.translatePositionData(positionData, newCenter);
-			
+			System.out.println("Populating " + recenteredPos.size() + " macrophages from." + initMacPositionFile);
+
 			for (int n = 0; n < recenteredPos.size(); n++) 
 				{
 				Macrophage mac = new Macrophage(Simulation.instance.schedule);
@@ -132,13 +134,21 @@ public class SimulationTBM extends Simulation
 			}
 
 		} else if (position_macs_randomly == true) {
-			System.out.println("Populating " + numMacs + " Macs randomly in sphere.");
-			for (int n = 0; n < numMacs; n++) 
-			{
+			System.out.println("Populating " + numMacs + " macrophages randomly.");
+			List<List<String>> positionData = FileSystemIO.readImarisCSV(randMacPositionFile, 1);
+				
+				// these are generated already pre-centered at location (r,r,r) no need to translate.
+			for (int n = 0; n < positionData.size(); n++) 
+					{
 				Macrophage mac = new Macrophage(Simulation.instance.schedule);
-				Simulation.space.placeCellRandomlyInSphere(mac, true);
+				Double x = Double.valueOf(positionData.get(n).get(0));
+				Double y =  Double.valueOf(positionData.get(n).get(1));
+				Double z =  Double.valueOf(positionData.get(n).get(2));
+				Double3D loc = new Double3D (x, y, z);
+				Simulation.space.cellField.setObjectLocation(mac, loc);
 				macs.add(mac);
 			}
+				
 		}
 		
 		for (Fragment c : fragsln)
@@ -158,12 +168,11 @@ public class SimulationTBM extends Simulation
 		{
 			System.out.println("Writing simulation output data to filesystem: " + outputPath);
 			if (Simulation.trackPositions == true) {
-				cellLogger.writeTrackData(outputPath);			
+				cellLogger.writeTrackData(outputPath, "_Position.csv");			
 			}
 			TimeLogger.writeTimeData(outputPath);
 			cellLogger.writeCountData(outputPath);		
 			cellLogger.writeRemovedCountData(outputPath);			
-
 
 		}
 		System.out.println("Simulation completed, you may close any open windows now.");
