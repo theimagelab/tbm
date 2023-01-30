@@ -287,20 +287,25 @@ dat<-rbind(dat,
 
 library(fitdistrplus)
 fit_lnorm <- fitdist(speed_real$value, "lnorm")
+library(svglite)
+svglite("speed_calibration_4panel.svg", width=8, height=6)
 par(mfrow = c(2, 2))
 denscomp(fit_lnorm)
 qqcomp(fit_lnorm)
 cdfcomp(fit_lnorm)
 ppcomp(fit_lnorm)
+dev.off()
 
 library(fitdistrplus)
 y=MI_real$value
 fit_mi <- fitdist(y, "lnorm")
+svglite("MI_calibration_4panel.svg", width=8, height=6)
 par(mfrow = c(2, 2))
 denscomp(fit_mi)
 qqcomp(fit_mi)
 cdfcomp(fit_mi)
 ppcomp(fit_mi)
+dev.off()
 
 gs_means <- aggregate(y ~ x, dat, mean)
 gs_means$y <- round(gs_means$y, 2)

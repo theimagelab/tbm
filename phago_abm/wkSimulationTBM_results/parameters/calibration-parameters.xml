@@ -17,7 +17,7 @@
 			<translationParadigm>HeterogeneousBetaMeander</translationParadigm>
 			<orientationParadigm>HeterogeneousBetaMeander</orientationParadigm>
 			<numFrags>500</numFrags>
-			<diameter>1.8</diameter>
+			<diameter>3.545</diameter>
 			<meanderMean>-3</meanderMean>
 			<meanderStD>1.5</meanderStD>
 
@@ -47,7 +47,7 @@
 			<orientationParadigm>HeterogeneousCRW</orientationParadigm>
 			<numMacs>18</numMacs>
 
-			<diameter>14</diameter>
+			<diameter>27</diameter>
 			<meanderMean>0.0</meanderMean>
 			<meanderStD>0.00</meanderStD>
 

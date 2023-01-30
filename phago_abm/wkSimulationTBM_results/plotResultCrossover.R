@@ -92,7 +92,7 @@ p<-ggplot(df, aes(y=value, x=Population, color=factor(MacSpd), fill = factor(Mac
     #             fun.args=list(conf.int=0.95),
     #             alpha = 0.5, color="black") +  
     geom_smooth(color="black", size=0.5) +
-    ylab("Clearance Rate (%/min)") + ylim(c(0,0.25))+
+    ylab("Clearance Rate (%/min)") + ylim(c(0,0.4))+
     xlab("Simulated Fragments per GC") + 
     #scale_y_continuous(trans = scales::log_trans())+
     #scale_x_continuous(trans = "log")+
